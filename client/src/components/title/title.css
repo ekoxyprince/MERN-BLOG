@@ -1,0 +1,24 @@
+.section__title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section__title h3{
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    font-family: 'poppins',sans-serif;
+    background: var(--gold-linear, linear-gradient(315deg, #FFE5A1 0%, #BF841A 50.52%, #FFCD74 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.section__title span{
+    width: 60px;
+    height: 5px;
+    background: var(--gold-linear, linear-gradient(315deg, #FFE5A1 0%, #BF841A 50.52%, #FFCD74 100%));
+    border-radius: 4px;
+}
