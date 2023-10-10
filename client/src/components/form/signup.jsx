@@ -4,6 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner'
 
 const Signup = ()=>{
 const [form,setForm] = useState({
@@ -12,6 +13,7 @@ const [form,setForm] = useState({
     email:'',
     password:''
 })
+const [loading,setLoading] = useState(false)
 const navigate = useNavigate()
 const Toast = Swal.mixin({
     toast:'true',
@@ -66,6 +68,7 @@ function handleChange(e){
                      <div className='form__group'>
                         <button onClick={(e)=>{
                             e.preventDefault()
+                            setLoading(true)
                             axios.post('/api/v1/auth/signup',form)
                             .then(res=>{
                               Toast.fire({
@@ -77,17 +80,18 @@ function handleChange(e){
                               },3000)
                             })
                             .catch(error=>{
-                                if(!error.response.data.success){
+                                setLoading(false)
+                                if(!error.response.data.success){    
                                     return Swal.fire({
                                         title:'Request Failed!',
                                         icon:'error',
-                                        text:error.response.data.body.info[0].msg,
+                                        text:error.response.data.body?error.response.data.body.info[0].msg:'An error occured try again later',
                                         background:'var(--gold-linear, linear-gradient(315deg, #FFE5A1 0%, #BF841A 50.52%, #FFCD74 100%))',
                                         confirmButtonColor:'#BF841A'
                                     })
                                 }
                             })
-                        }} className='form__button'>Signup</button>
+                        }} className='form__button'>{loading?<Spinner animation='border' role='status'></Spinner>:'Signup'}</button>
                      </div>
                 </div>
                 <p>Already have an account? <NavLink to={'/signin'}>Signin</NavLink></p>
