@@ -15,9 +15,9 @@ navBar.classList.toggle('active')
           </div>
           <nav className='nav__bar'>
           <NavLink className={'nav__link'} to={'/'}>Home</NavLink>
-          <NavLink className={'nav__link'} to={'/about'}>About</NavLink>
+          <a className={'nav__link'} href='#about'>About</a>
           <NavLink className={'nav__link'} to={'/blog'}>Blog</NavLink>
-          <NavLink className={'nav__link'} to={'/login'}>Login</NavLink>
+          <NavLink className={'nav__link'} to={'/signin'}>Login</NavLink>
           </nav>
           <div className='nav__menu'>
            <i onClick={handleNav} className='navmenu bx bx-menu'></i>

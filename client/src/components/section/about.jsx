@@ -4,7 +4,7 @@ import img from '../../assets/images/about.png'
 
 const About = ()=>{
     return (
-        <section>
+        <section id='about'>
             <Title title='About Us'/>
             <div className='container'>
                 <div className='row  mt-3'>

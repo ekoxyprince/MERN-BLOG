@@ -16,16 +16,14 @@ axios.get('/api/v1/posts')
 })
 },[])
 if(!blogs){
-    return(
-        <section>
+    return(<section>
             <Title title="Our Blog"/>
             <div className='container mt-3' style={{display:'flex',justifyContent:'center'}}>
            <Spinner animation='border' role='status'>
             <span className='visually-hidden'>Loading...</span>
            </Spinner>
             </div>
-        </section>
-    ) 
+        </section>) 
 }
     return(
         <section>
@@ -34,14 +32,14 @@ if(!blogs){
             <div className='row my-4'>
                 {blogs.map(blog=>{
                     return(
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                         <Card>
                          <Card.Img variant='top' src={blog.image}/>
                          <Card.Body>
                             <Card.Title>{blog.title}</Card.Title>
                             <Card.Text>{blog.content.length>30?(blog.content).slice(0,30)+"...":blog.content}</Card.Text>
                             <div style={{display:'flex',justifyContent:'center'}}>
-                            <Button variant='primary'><NavLink style={{color:'white',textDecoration:'none'}} to={`/blog_details/${blog._id}`}>View Details</NavLink></Button>
+                            <Button variant='primary'><NavLink style={{color:'white',textDecoration:'none'}} to={`/blog_details/${blog._id}`}>Read More</NavLink></Button>
                             </div>
                          </Card.Body>
                         </Card>

@@ -37,12 +37,12 @@ exports.signin = (req,res,next)=>{
     User.findOne({email:email})
     .then(user=>{
         if(!user){
-            return res.status(400).json({success:false,body:{status:"error",info:[{msg:"No user found",field:'email'}]}})
+            return res.status(400).json({success:false,body:{status:"error",info:[{msg:"No user found",path:'email'}]}})
         }
         return bcrypt.compare(password,user.password)
         .then(doMatch=>{
             if(!doMatch){
-                return res.status(400).json({success:false,body:{status:"error",info:[{msg:"Password incorrect",field:'password'}]}})   
+                return res.status(400).json({success:false,body:{status:"error",info:[{msg:"Password incorrect",path:'password'}]}})   
             }
             const token = jwt.sign({id:user._id},jwt_secret,{expiresIn:jwt_expires})
             res.cookie('token',token,{

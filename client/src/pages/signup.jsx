@@ -1,15 +1,15 @@
+import Signup from "../components/form/signup";
 import Header from "../components/header/header";
-import About from "../components/section/about";
 import Footer from "../components/section/footer";
 
-const AboutSection =  ()=>{
-    return (
+
+const Register = ()=>{
+    return(
         <>
         <Header/>
-        <About/>
+        <Signup/>
         <Footer/>
         </>
     )
 }
-
-export default AboutSection
+export default Register
