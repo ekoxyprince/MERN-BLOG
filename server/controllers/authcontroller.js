@@ -46,7 +46,8 @@ exports.signin = (req,res,next)=>{
             }
             const token = jwt.sign({id:user._id},jwt_secret,{expiresIn:jwt_expires})
             res.cookie('token',token,{
-              expires:new Date(Date.now() + cookie_expires * 60 * 1000)  
+              expires:new Date(Date.now() + cookie_expires * 60 * 1000) ,
+              httpOnly:true 
             })
             res.status(200).json({success:true,body:{status:'success',data:{user:user,token:token},info:'Signin successful'}})
         })

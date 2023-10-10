@@ -3,6 +3,7 @@ import './section.css'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
+import Carousel from 'react-bootstrap/Carousel'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
@@ -30,22 +31,24 @@ if(!blogs){
             <Title title="Our Blog"/>
             <div className='container'>
             <div className='row my-4'>
+                        <div className="col-md-12">
+                        <Carousel>
                 {blogs.map(blog=>{
                     return(
-                        <div className="col-md-3">
-                        <Card>
-                         <Card.Img variant='top' src={blog.image}/>
-                         <Card.Body>
-                            <Card.Title>{blog.title}</Card.Title>
-                            <Card.Text>{blog.content.length>30?(blog.content).slice(0,30)+"...":blog.content}</Card.Text>
+                        <Carousel.Item>
+                         <Card.Img variant='top' className='cardImg' src={blog.image}/>
+                         <Carousel.Caption>
+                            <h2>{blog.title}</h2>
+                            <p>{blog.content.length>30?(blog.content).slice(0,30)+"...":blog.content}</p>
                             <div style={{display:'flex',justifyContent:'center'}}>
-                            <Button variant='primary'><NavLink style={{color:'white',textDecoration:'none'}} to={`/blog_details/${blog._id}`}>Read More</NavLink></Button>
+                            <Button variant='outline-dark'><NavLink style={{color:'white',textDecoration:'none'}} to={`/blog_details/${blog._id}`}>Read More</NavLink></Button>
                             </div>
-                         </Card.Body>
-                        </Card>
-                        </div>
+                         </Carousel.Caption>
+                         </Carousel.Item>
                     )
                 })}
+                </Carousel>
+                </div>
               
             </div>
             </div>
