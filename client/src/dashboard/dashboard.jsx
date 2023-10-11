@@ -1,10 +1,20 @@
 import {useCookies} from "react-cookie"
+import './dashboard.css'
+import Sidebar from "../components/sidebar/sidebar"
 const Dashboard = ()=>{
-const [cookies,removeCookie] = useCookies(['user'])
+const [cookies,setCookie] = useCookies(['user'])
 const user = cookies.user
 console.log(user)
     return(
-        <>User Dashboard {user.firstname}</>
+        <div className="dashboard">
+
+          <div>
+          <Sidebar/>
+          </div>
+          <div>
+            Hello hdgsdghsghsdghsdg
+            </div>  
+        </div>
     )
 }
 
