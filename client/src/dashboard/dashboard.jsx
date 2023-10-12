@@ -7,12 +7,14 @@ const user = cookies.user
 console.log(user)
     return(
         <div className="dashboard">
-
-          <div>
           <Sidebar/>
-          </div>
-          <div>
-            Hello hdgsdghsghsdghsdg
+          <div className="row mt-5">
+            <div className="col-md-6">
+                   Yes
+            </div>
+            <div className="col-md-6">
+                   No
+            </div>
             </div>  
         </div>
     )

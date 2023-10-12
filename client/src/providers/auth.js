@@ -14,7 +14,7 @@ export const AuthProvider = ({children})=>{
 }
     const logout = ()=>{
         removeCookie("user")
-        navigate('/login')
+        navigate('/signin')
     }
     return(
         <AuthContext.Provider value={{user,login,logout}}>{children}</AuthContext.Provider>

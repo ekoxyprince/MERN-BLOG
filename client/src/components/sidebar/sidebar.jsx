@@ -1,28 +1,40 @@
 import './sidebar.css'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../providers/auth'
 
 
 const Sidebar = ()=>{
+   const auth = useAuth()
    return(
-    <div className='sidebar'>
-      <div className='nav__logo'>
-            <h3>AstroBlog.</h3>
-          </div>
-     <ul>
-        <li>
-        <span className='fas fa-home'></span> <NavLink to={'/user/dashboard'}>Dashboard</NavLink>
-        </li>
-        <li>
-       <span className='fas fa-pen'></span> <NavLink to={'/user/create_blog'}>Create Blog</NavLink>
-        </li>
-        <li>
-        <span className='fas fa-file'></span>  <NavLink to={'/user/view_blog'}>My Blogs</NavLink>
-        </li>
-        <li>
-        <span className='fas fa-cog'></span> <NavLink to={'/user/details'}>My Details</NavLink>
-        </li>
-     </ul>
-    </div>
+   <aside>
+      <div className="logo">
+      <h3>AstroBlog</h3>
+      </div>
+      <div className='sidebar'>
+      <NavLink className={'toggled'}>
+         <span className='bx bxs-dashboard'></span>
+         <h3>Dashboard</h3>
+      </NavLink>
+      <NavLink>
+         <span className='bx bx-news'></span>
+         <h3>My Blogs</h3>
+      </NavLink>
+      <NavLink>
+         <span className='bx bx-edit'></span>
+         <h3>Create Blog</h3>
+      </NavLink>
+      <NavLink>
+         <span className='bx bx-cog'></span>
+         <h3>Settings</h3>
+      </NavLink>
+      <a href='#' onClick={()=>{
+       auth.logout();
+      }}>
+         <span className='bx bx-exit'></span>
+         <h3>Logout</h3>
+      </a>
+      </div>
+   </aside>
    )
 }
 
