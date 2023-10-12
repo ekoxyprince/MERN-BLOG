@@ -1,8 +1,11 @@
 import {useCookies} from "react-cookie"
 import './dashboard.css'
 import Sidebar from "../components/sidebar/sidebar"
+import axios from "axios"
+
 const Dashboard = ()=>{
 const [cookies,setCookie] = useCookies(['user'])
+console.log(axios.get('/api/v1/user/details'))
 const user = cookies.user
 console.log(user)
     return(

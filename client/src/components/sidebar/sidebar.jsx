@@ -19,6 +19,10 @@ const Sidebar = ()=>{
          <span className='bx bx-news'></span>
          <h3>My Blogs</h3>
       </NavLink>
+      <NavLink to={'/blog'}>
+         <span className='bx bx-book'></span>
+         <h3>Blogs</h3>
+      </NavLink>
       <NavLink>
          <span className='bx bx-edit'></span>
          <h3>Create Blog</h3>
